@@ -103,10 +103,21 @@ class NotificationController extends Controller {
 
         $user = Yii::$app->user->identity;
 
-        $device = Device::find()->where(['access_token' => Yii::$app->request->cookies->get('device_id')])->one();
+        $device = Device::find()->where(['device_id' => Yii::$app->request->cookies->get('device_id')])->one();
+
+        if ($device == null) {
+            Yii::warning(Yii::t('system.log', 'Device not found: {device_id}', ['device_id' => Yii::$app->request->cookies->get('device_id')]));
+            return [
+                'success' => false,
+            ];
+        }
 
         $device->notification_token = $token;
         $device->save(false);
+
+        return [
+            'success' => true,
+        ];
     }
 
     /**
