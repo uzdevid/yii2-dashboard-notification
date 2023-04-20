@@ -4,9 +4,6 @@ function saveToken(token) {
         type: 'post',
         data: {
             token: token
-        },
-        success: function (data) {
-            console.log(data);
         }
     });
 }
