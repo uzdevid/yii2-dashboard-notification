@@ -2,9 +2,10 @@
 
 namespace uzdevid\dashboard\notification\models;
 
-use uzdevid\dashboard\base\db\ActiveRecord;
+use uzdevid\dashboard\models\User;
 use Yii;
 use yii\db\ActiveQuery;
+use yii\db\ActiveRecord;
 
 /**
  * This is the model class for table "notification".
@@ -35,7 +36,7 @@ class Notification extends ActiveRecord {
      */
     public function rules(): array {
         return [
-            [['notification_type_id', 'user_id', 'description', 'send_time'], 'required'],
+            [['notification_type_id', 'user_id', 'description'], 'required'],
             [['notification_type_id', 'user_id', 'is_read'], 'integer'],
             [['description'], 'string'],
             [['arguments', 'send_time'], 'safe'],
@@ -84,6 +85,28 @@ class Notification extends ActiveRecord {
      */
     public function getSender(): User {
         return User::findOne($this->arguments?->sender_id);
+    }
+
+    public function behaviors() {
+        $behaviors = parent::behaviors();
+        $behaviors['timestamp'] = [
+            'class' => 'yii\behaviors\TimestampBehavior',
+            'attributes' => [
+                ActiveRecord::EVENT_BEFORE_INSERT => ['send_time'],
+            ],
+        ];
+
+        $behaviors['format'] = [
+            'class' => 'yii\behaviors\AttributeBehavior',
+            'attributes' => [
+                ActiveRecord::EVENT_BEFORE_INSERT => ['arguments'],
+            ],
+            'value' => function ($event) {
+                return json_encode($this->arguments);
+            },
+        ];
+
+        return $behaviors;
     }
 
     public function afterFind() {

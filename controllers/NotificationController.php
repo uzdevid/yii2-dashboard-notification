@@ -2,11 +2,12 @@
 
 namespace uzdevid\dashboard\notification\controllers;
 
+use uzdevid\dashboard\models\Device;
 use uzdevid\dashboard\models\Menu;
 use uzdevid\dashboard\notification\models\Notification;
-use uzdevid\dashboard\widgets\OffCanvasPage\OffCanvasPageOptions;
 use uzdevid\dashboard\widgets\ModalPage\ModalPage;
 use uzdevid\dashboard\widgets\OffCanvasPage\OffCanvasPage;
+use uzdevid\dashboard\widgets\OffCanvasPage\OffCanvasPageOptions;
 use Yii;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
@@ -43,6 +44,7 @@ class NotificationController extends Controller {
             'class' => VerbFilter::class,
             'actions' => [
                 'delete' => ['POST'],
+                'save-token' => ['POST'],
             ],
         ];
 
@@ -94,6 +96,17 @@ class NotificationController extends Controller {
                 'view' => $this->renderAjax('ajax/mini-list', compact('notification_list'))
             ]
         ];
+    }
+
+    public function actionSaveToken() {
+        $token = Yii::$app->request->post('token');
+
+        $user = Yii::$app->user->identity;
+
+        $device = Device::find()->where(['access_token' => Yii::$app->request->cookies->get('device_id')])->one();
+
+        $device->notification_token = $token;
+        $device->save(false);
     }
 
     /**
