@@ -2,8 +2,8 @@
 
 namespace uzdevid\dashboard\notification\controllers;
 
-use uzdevid\dashboard\base\web\Controller;
 use uzdevid\dashboard\base\helpers\Url;
+use uzdevid\dashboard\base\web\Controller;
 use uzdevid\dashboard\models\NotificationTypeRole;
 use uzdevid\dashboard\widgets\ModalPage\ModalPage;
 use uzdevid\dashboard\widgets\ModalPage\ModalPageOptions;
@@ -15,6 +15,13 @@ use yii\web\NotFoundHttpException;
 use yii\web\Response;
 
 class NotificationTypeRoleController extends Controller {
+
+    public function __construct($id, $module, $config = []) {
+        parent::__construct($id, $module, $config);
+
+        $this->viewPath = '@vendor/uzdevid/yii2-dashboard-notification/views/notification-type-role';
+    }
+
     /**
      * @inheritDoc
      */

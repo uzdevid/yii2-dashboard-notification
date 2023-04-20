@@ -42,5 +42,5 @@ use uzdevid\dashboard\models\service\NotificationService;
 <?php endforeach; ?>
 
 <li class="dropdown-footer">
-    <?php echo OffCanvas::link(Yii::t('system.content', 'Show all notification'), Url::to(['/system/notification/index'])); ?>
+    <?php echo OffCanvasPage::link(Yii::t('system.content', 'Show all notification'), Url::to(['/system/notification/index'])); ?>
 </li>

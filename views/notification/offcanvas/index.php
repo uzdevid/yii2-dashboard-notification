@@ -1,8 +1,8 @@
 <?php
 
 use uzdevid\dashboard\base\helpers\Url;
-use uzdevid\dashboard\models\Notification;
-use uzdevid\dashboard\models\service\NotificationService;
+use uzdevid\dashboard\notification\models\Notification;
+use uzdevid\dashboard\notification\models\service\NotificationService;
 use yii\web\View;
 
 /**

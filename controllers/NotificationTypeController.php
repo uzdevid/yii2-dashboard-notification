@@ -17,6 +17,7 @@ use yii\web\NotFoundHttpException;
 use yii\web\Response;
 
 class NotificationTypeController extends Controller {
+
     public function __construct($id, $module, $config = []) {
         parent::__construct($id, $module, $config);
 

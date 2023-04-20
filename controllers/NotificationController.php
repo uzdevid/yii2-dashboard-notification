@@ -3,10 +3,10 @@
 namespace uzdevid\dashboard\notification\controllers;
 
 use uzdevid\dashboard\models\Menu;
-use uzdevid\dashboard\models\Notification;
-use uzdevid\dashboard\widgets\OffCanvasPage\OffCanvasPage;
+use uzdevid\dashboard\notification\models\Notification;
 use uzdevid\dashboard\offcanvaspage\OffCanvasPageOptions;
 use uzdevid\dashboard\widgets\ModalPage\ModalPage;
+use uzdevid\dashboard\widgets\OffCanvasPage\OffCanvasPage;
 use Yii;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
@@ -17,6 +17,13 @@ use yii\web\NotFoundHttpException;
  * MenuController implements the CRUD actions for Menu model.
  */
 class NotificationController extends Controller {
+
+    public function __construct($id, $module, $config = []) {
+        parent::__construct($id, $module, $config);
+
+        $this->viewPath = '@vendor/uzdevid/yii2-dashboard-notification/views/notification';
+    }
+
     /**
      * @inheritDoc
      */
@@ -49,7 +56,7 @@ class NotificationController extends Controller {
         $notifications = Notification::find()->where(['user_id' => Yii::$app->user->id])->orderBy(['send_time' => SORT_DESC])->all();
 
         if (Yii::$app->request->isAjax) {
-            $offcanvas = OffCanvas::options(OffCanvasPageOptions::SIDE_RIGHT);
+            $offcanvas = OffCanvasPage::options(OffCanvasPageOptions::SIDE_RIGHT);
             $view = $this->renderAjax('offcanvas/index', compact('notifications'));
 
             foreach ($notifications as $notification) {
