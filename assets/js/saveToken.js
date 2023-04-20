@@ -1,9 +1,12 @@
 function saveToken(token) {
     $.ajax({
-        url: '/system/notification/save-token',
+        url: BASEURL + '/' + LANGUAGE + '/system/notification/save-token',
         type: 'post',
         data: {
             token: token
+        },
+        success: function (data) {
+            console.log(data);
         }
     });
 }
