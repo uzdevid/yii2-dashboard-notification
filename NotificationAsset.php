@@ -13,6 +13,10 @@ class NotificationAsset extends AssetBundle {
         [
             'js/onNotify.js',
             'position' => View::POS_HEAD,
+        ],
+        [
+            'js/saveToken.js',
+            'position' => View::POS_HEAD,
         ]
     ];
 
