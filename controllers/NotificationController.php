@@ -4,7 +4,7 @@ namespace uzdevid\dashboard\notification\controllers;
 
 use uzdevid\dashboard\models\Menu;
 use uzdevid\dashboard\notification\models\Notification;
-use uzdevid\dashboard\offcanvaspage\OffCanvasPageOptions;
+use uzdevid\dashboard\widgets\OffCanvasPage\OffCanvasPageOptions;
 use uzdevid\dashboard\widgets\ModalPage\ModalPage;
 use uzdevid\dashboard\widgets\OffCanvasPage\OffCanvasPage;
 use Yii;
