@@ -2,7 +2,7 @@
 
 namespace uzdevid\dashboard\notification\models;
 
-use uzdevid\dashboard\components\BaseModel;
+use uzdevid\dashboard\base\db\ActiveRecord;
 use Yii;
 use yii\db\ActiveQuery;
 
@@ -17,7 +17,7 @@ use yii\db\ActiveQuery;
  *
  * @property string $translatedTitle
  */
-class NotificationType extends BaseModel {
+class NotificationType extends ActiveRecord {
     /**
      * {@inheritdoc}
      */

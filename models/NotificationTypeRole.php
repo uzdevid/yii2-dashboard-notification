@@ -2,7 +2,7 @@
 
 namespace uzdevid\dashboard\notification\models;
 
-use uzdevid\dashboard\components\BaseModel;
+use uzdevid\dashboard\base\db\ActiveRecord;
 use Yii;
 use yii\db\ActiveQuery;
 
@@ -16,7 +16,7 @@ use yii\db\ActiveQuery;
  * @property NotificationType $notificationType
  * @property Role $role
  */
-class NotificationTypeRole extends BaseModel {
+class NotificationTypeRole extends ActiveRecord {
     /**
      * {@inheritdoc}
      */

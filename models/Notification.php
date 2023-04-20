@@ -2,7 +2,7 @@
 
 namespace uzdevid\dashboard\notification\models;
 
-use uzdevid\dashboard\components\BaseModel;
+use uzdevid\dashboard\base\db\ActiveRecord;
 use Yii;
 use yii\db\ActiveQuery;
 
@@ -22,7 +22,7 @@ use yii\db\ActiveQuery;
  * @property User $sender
  *
  */
-class Notification extends BaseModel {
+class Notification extends ActiveRecord {
     /**
      * {@inheritdoc}
      */

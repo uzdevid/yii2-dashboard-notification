@@ -2,7 +2,7 @@
 
 use uzdevid\dashboard\widgets\OffCanvasPage\OffCanvasPage;
 use dashboard\SideBar\View;
-use uzdevid\dashboard\components\Url;
+use uzdevid\dashboard\base\helpers\Url;
 use uzdevid\dashboard\models\Notification;
 use uzdevid\dashboard\models\service\NotificationService;
 

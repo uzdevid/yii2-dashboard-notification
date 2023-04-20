@@ -1,6 +1,6 @@
 <?php
 
-use uzdevid\dashboard\components\Url;
+use uzdevid\dashboard\base\helpers\Url;
 use uzdevid\dashboard\models\Notification;
 use uzdevid\dashboard\models\service\NotificationService;
 use yii\web\View;

@@ -2,8 +2,8 @@
 
 namespace uzdevid\dashboard\notification\controllers;
 
-use uzdevid\dashboard\components\BaseController;
-use uzdevid\dashboard\components\Url;
+use uzdevid\dashboard\base\web\Controller;
+use uzdevid\dashboard\base\helpers\Url;
 use uzdevid\dashboard\notification\models\NotificationType;
 use uzdevid\dashboard\notification\models\search\NotificationTypeSearch;
 use uzdevid\dashboard\notification\models\service\NotificationService;
@@ -16,7 +16,7 @@ use yii\filters\VerbFilter;
 use yii\web\NotFoundHttpException;
 use yii\web\Response;
 
-class NotificationTypeController extends BaseController {
+class NotificationTypeController extends Controller {
     public function __construct($id, $module, $config = []) {
         parent::__construct($id, $module, $config);
 

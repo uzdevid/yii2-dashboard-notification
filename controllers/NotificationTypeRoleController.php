@@ -2,8 +2,8 @@
 
 namespace uzdevid\dashboard\notification\controllers;
 
-use uzdevid\dashboard\components\BaseController;
-use uzdevid\dashboard\components\Url;
+use uzdevid\dashboard\base\web\Controller;
+use uzdevid\dashboard\base\helpers\Url;
 use uzdevid\dashboard\models\NotificationTypeRole;
 use uzdevid\dashboard\widgets\ModalPage\ModalPage;
 use uzdevid\dashboard\widgets\ModalPage\ModalPageOptions;
@@ -14,7 +14,7 @@ use yii\filters\VerbFilter;
 use yii\web\NotFoundHttpException;
 use yii\web\Response;
 
-class NotificationTypeRoleController extends BaseController {
+class NotificationTypeRoleController extends Controller {
     /**
      * @inheritDoc
      */
