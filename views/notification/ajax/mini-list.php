@@ -4,7 +4,7 @@ use uzdevid\dashboard\widgets\OffCanvasPage\OffCanvasPage;
 use uzdevid\dashboard\widgets\SideBar\View;
 use uzdevid\dashboard\base\helpers\Url;
 use uzdevid\dashboard\notification\models\Notification;
-use uzdevid\dashboard\notification\models\service\NotificationService;
+use uzdevid\dashboard\notification\models\services\NotificationService;
 
 /**
  * @var View $this
