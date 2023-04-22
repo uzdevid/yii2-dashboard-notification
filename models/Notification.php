@@ -84,10 +84,7 @@ class Notification extends ActiveRecord {
      * @return User
      */
     public function getSender(): User {
-        if (is_string($this->arguments)) {
-            $this->arguments = json_decode($this->arguments);
-        }
-
+        $this->parseArguments();
         return User::findOne($this->arguments?->sender_id);
     }
 
@@ -114,7 +111,15 @@ class Notification extends ActiveRecord {
     }
 
     public function afterFind() {
-        $this->arguments = (object)$this->arguments;
+        $this->parseArguments();
         parent::afterFind();
+    }
+
+    private function parseArguments() {
+        if (is_string($this->arguments)) {
+            $this->arguments = json_decode($this->arguments);
+        } else {
+            $this->arguments = (object)$this->arguments;
+        }
     }
 }
