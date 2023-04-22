@@ -11,6 +11,10 @@ class NotificationAsset extends AssetBundle {
 
     public $js = [
         [
+            'js/notification.js',
+            'position' => View::POS_HEAD,
+        ],
+        [
             'js/onNotify.js',
             'position' => View::POS_HEAD,
         ],

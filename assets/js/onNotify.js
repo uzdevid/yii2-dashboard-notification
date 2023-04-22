@@ -1,3 +1,9 @@
+const notificationSound = new Audio('/storage/sounds/notification.mp3');
+
 function onNotify(payload) {
-    console.log('I received a new notification', payload);
+    getNotificationsMiniList();
+
+    if (notificationSound) {
+        notificationSound.play();
+    }
 }
