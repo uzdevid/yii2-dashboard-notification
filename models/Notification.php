@@ -20,6 +20,7 @@ use yii\db\ActiveRecord;
  *
  * @property NotificationType $notificationType
  * @property User $user
+ * @property User $sender
  *
  */
 class Notification extends ActiveRecord {
@@ -77,6 +78,18 @@ class Notification extends ActiveRecord {
         return $this->hasOne(User::class, ['id' => 'user_id']);
     }
 
+    /**
+     * Gets query for [[Sender]].
+     *
+     * @return User
+     */
+    public function getSender(): User {
+        if (is_string($this->arguments)) {
+            $this->arguments = json_decode($this->arguments);
+        }
+
+        return User::findOne($this->arguments?->sender_id);
+    }
 
     public function behaviors() {
         $behaviors = parent::behaviors();
