@@ -1,10 +1,10 @@
 <?php
 
 use uzdevid\dashboard\widgets\OffCanvasPage\OffCanvasPage;
-use dashboard\SideBar\View;
+use uzdevid\dashboard\widgets\SideBar\View;
 use uzdevid\dashboard\base\helpers\Url;
-use uzdevid\dashboard\models\Notification;
-use uzdevid\dashboard\models\service\NotificationService;
+use uzdevid\dashboard\notification\models\Notification;
+use uzdevid\dashboard\notification\models\service\NotificationService;
 
 /**
  * @var View $this
